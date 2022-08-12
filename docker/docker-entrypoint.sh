@@ -24,7 +24,7 @@ if [ -z $DISABLE_CRON ];then
 fi
 
 # 设置nginx监听端口
-sed -i "s|listen 80|listen ${PORT:-80}|" /etc/nginx/conf.d/nginx.conf
+sed -i "s|listen 80|listen ${PORT:-80}|" /etc/nginx/http.d/default
 # 设置默认模式为去掉？
 sed -i "'root_path' => '?'|'root_path' => ''|" /var/www/html/controller/AdminController.php
 

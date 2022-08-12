@@ -11,7 +11,7 @@ RUN apk add --no-cache \
 RUN  git clone https://github.com/sujoshua/OneIndex.git /var/www/html
 
 RUN  mkdir -p /run/nginx && \
-    mv /var/www/html/docker/nginx.conf /etc/nginx/conf.d && \
+    mv /var/www/html/docker/nginx.conf /etc/nginx/http.d/default && \
     mv /var/www/html/docker/php.ini /usr/local/etc/php && \
     mv /var/www/html/docker/docker-entrypoint.sh / &&\
     chmod +x /docker-entrypoint.sh && \
