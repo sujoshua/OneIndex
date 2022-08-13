@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      name: Build the Docker image
+    - run: echo joshuasu/oneindex:$GITHUB_SHA
+    - run: docker login -u ${{secrets.DOCKER_HUB_USER}} -p ${{secrets.DOCKER_HUB_PWD}}
+    - run: docker build --file docker/Dockerfile --tag joshuasu/oneindex:$GITHUB_SHA .
+    - run: docker push joshuasu/oneindex:$GITHUB_SHA
+    - run: docker tag joshuasu/oneindex:$GITHUB_SHA joshuasu/oneindex:latest && docker push joshuasu/oneindex:latest
+         

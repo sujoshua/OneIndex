@@ -246,6 +246,7 @@
 		}
 
 		static function urlencode($path){
+			$paths=array();
 			foreach(explode('/', $path) as $k=>$v){
 				if(empty(!$v)){
 					$paths[] = rawurlencode($v);
