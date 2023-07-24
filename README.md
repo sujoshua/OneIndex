@@ -18,7 +18,7 @@
 1. 修复安装步骤中第二步中回调URL的无法使用问题：由于微软的api回调要求回调URL必须是https协议，若安装者使用的协议是http协议，原作者的解决方案是提供了一个桥接网址，能转发微软的api回调，从而在UI上写死了第二步中的回调URL的更改。但是由于原版本的删库，该桥接网址也已经失效，但在UI上仍是写死状态。本版本，允许安装者自定义回调url的地址，因此安装者可以把回调url调整为自己服务器的网址直接与微软进行对接，但因此也必须要求使用https协议。但基于目前https的tls证书申请是十分方便的以及http的传输不安全性，建议使用者申请tls证书，实现https协议
 2. 添加了php的curl模块相关参数的修改：在原版本curl参数是写死在了php代码里面的，此版本修复了这一问题，提供了修改方式，并相应的添加url。此修复可以解决传输一些较大文件时，会出现的连接超时现象。
 3. 提供了下载反代理服务器功能。虽说流量不走本机，而是直接使用onedrive的传输服务器，但是由于众所周知的原因，onedrive在国内访问是不稳定的。因此本版本允许安装者使用反代服务器来加速资源的下载。
-4. 目前Github的docker镜像提供的版本也有少许问题，因此本版本提供了对应修复版本的docker，修复版本docker默认开启了取消地址栏？的功能，使得url更加好看。
+4. 目前Github的docker镜像提供的版本也有少许问题，因此本版本提供了对应修复版本的docker，修复版本docker默认开启了取消地址栏的功能，使得url更加好看。
 5. 修复在php8环境下，加载onedrive首页出现的报错导致的无法使用
 
 **有任何问题，欢迎在issue提出**
@@ -36,7 +36,7 @@
 
 #### 配置：
 
-安装步骤与[uuou](https://github.com/uuou)/**[Oneindex](https://github.com/uuou/Oneindex)**基本一致，除了下方单独列出的地方需要注意
+安装步骤与[uuou](https://github.com/uuou)/[Oneindex](https://github.com/uuou/Oneindex)基本一致，除了下方单独列出的地方需要注意
 
 <img width="658" alt="image" src="/media/files/install.gif">  
 
@@ -58,7 +58,7 @@
 
 ### Docker 安装运行
 
-- 基于[TimeBye/oneindex](https://github.com/TimeBye/oneindex)修改而来，写入本版本，完善其细节，修复了GithuAction的构建能力，同时默认添加了伪静态，实现状态栏去除？功能。
+- 基于[TimeBye/oneindex](https://github.com/TimeBye/oneindex)修改而来，写入本版本，完善其细节，修复了GithuAction的构建能力，同时默认添加了伪静态，实现状态栏去除功能。
 
 
 
@@ -247,4 +247,4 @@ onedrive直链获取方式：
 
 <img width="658" alt="image" src="/media/files/proxy.png">
 
-讲**curl连接服务器超时时间** 参数适当调大。
+将**curl连接服务器超时时间** 参数适当调大。
